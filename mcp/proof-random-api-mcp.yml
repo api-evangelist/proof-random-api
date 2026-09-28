@@ -1,0 +1,18 @@
+generated: '2026-09-28'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/_original/openapi.json
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: No MCP server was found. The pre-flight posted tools/list to /mcp on the known hosts; verdict None. Candidate tools below are derived from
+  the 1 operation(s) in the provider's own OpenAPI (1 listed); they describe what a server WOULD expose, not one that exists.
+tools:
+- name: get_v1_random
+  operationId: GET /v1/random
+  method: GET
+  path: /v1/random
+  description: Derive a reproducible integer from latest drand quicknet beacon

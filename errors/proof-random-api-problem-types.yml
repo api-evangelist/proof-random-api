@@ -1,0 +1,25 @@
+generated: '2026-09-28'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/_original/openapi.json
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 1
+  statuses_declared: 2
+problems:
+- status: 400
+  title: Bad Request
+  description: Invalid nonce or max
+  operations: 1
+  media_types: []
+  schema: null
+- status: 503
+  title: Service Unavailable
+  description: Beacon unavailable or invalid
+  operations: 1
+  media_types: []
+  schema: null

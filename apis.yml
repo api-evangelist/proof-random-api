@@ -1,23 +1,63 @@
 aid: proof-random-api
+
 name: Proof Random API (Kepler Ops)
-description: 'Proof Random API (Kepler Ops) is a company surfaced via the API Evangelist harvest backlog
-  (source: new-submission) and added to the network as a stub for full-pipeline profiling.'
+
+description: 'Proof Random API (Kepler Ops) provides a free public randomness service by relaying the drand quicknet beacon. It offers a simple endpoint to derive reproducible integers from the latest beacon using a user‑supplied nonce. The API returns the sampled value, beacon round, signature digest verification, and indicates that no BLS verification or x402 billing is performed. This service is intended for non‑adversarial use cases such as testing, demos, or low‑stakes applications.'
+
 url: https://raw.githubusercontent.com/api-evangelist/proof-random-api/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:new-submission
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-27 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-27'
+
 modified: '2026-09-27'
+
 tags:
 - Company
-apis: []
+- Randomness
+- Public API
+- Drand
+- Free Service
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
+image: https://proof-random-api.pn-26f.workers.dev/logo.png
+
 common:
+- type: Spectral
+  url: rules/proof-random-api-rules.yml
+- type: ErrorCatalog
+  url: errors/proof-random-api-problem-types.yml
+- type: Conformance
+  url: conformance/proof-random-api-conformance.yml
+- type: Hosts
+  url: hosts/proof-random-api-hosts.yml
+- type: Vendors
+  url: vendors/proof-random-api-vendors.yml
+- type: DomainSecurity
+  url: security/proof-random-api-domain-security.yml
 - type: Website
   url: https://proof-random-api.pn-26f.workers.dev/
+- type: APIReference
+  url: https://proof-random-api.pn-26f.workers.dev/openapi.json
+- type: llms.txt
+  url: https://proof-random-api.pn-26f.workers.dev/llms.txt
+
+apis: []
+x-enrichment:
+  date: '2026-09-27'
+  status: enriched
+  artifacts_added: 9
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local
