@@ -54,7 +54,15 @@ common:
 - type: llms.txt
   url: https://proof-random-api.pn-26f.workers.dev/llms.txt
 
-apis: []
+apis:
+- aid: proof-random-api:proof-random-api-random-api
+  name: Proof Random API (Kepler Ops) Random API
+  description: The Random API from Proof Random API (Kepler Ops) — 1 operation(s) for random.
+  tags:
+  - Random
+  properties:
+  - type: OpenAPI
+    url: openapi/proof-random-api-random-api-openapi.yml
 x-enrichment:
   date: '2026-09-27'
   status: enriched

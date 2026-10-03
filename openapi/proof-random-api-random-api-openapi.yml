@@ -1,0 +1,70 @@
+openapi: 3.2.0
+info:
+  title: Proof Random API
+  version: 0.3.0
+  description: Free drand quicknet beacon relay. Digest only, not BLS verification. Latest beacon can be known. No x402 billing.
+servers:
+- url: https://proof-random-api.pn-26f.workers.dev
+tags:
+- name: Random
+paths:
+  /v1/random:
+    get:
+      summary: Derive a reproducible integer from latest drand quicknet beacon
+      parameters:
+      - name: nonce
+        in: query
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 128
+      - name: max
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 65536
+          default: 6
+      responses:
+        '200':
+          description: Beacon sample and fields for independent verification
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - value
+                - nonce
+                - round
+                - signature
+                - blsVerified
+                properties:
+                  value:
+                    type: integer
+                    minimum: 0
+                  nonce:
+                    type: string
+                  round:
+                    type: integer
+                  signature:
+                    type: string
+                  randomness:
+                    type: string
+                  signatureDigestMatches:
+                    type: boolean
+                  blsVerified:
+                    type: boolean
+                    const: false
+                  x402:
+                    type: boolean
+                    const: false
+        '400':
+          description: Invalid nonce or max
+        '503':
+          description: Beacon unavailable or invalid
+      tags:
+      - Random
+      operationId: getV1Random
+      x-operation-id-source: derived
